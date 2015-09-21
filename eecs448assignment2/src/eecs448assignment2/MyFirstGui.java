@@ -1,6 +1,6 @@
 package eecs448assignment2;
 
-import javafx.scene.layout.Pane;
+//import javafx.scene.layout.Pane;
 import java.lang.Exception;
 import javax.swing.*;
 
@@ -13,40 +13,58 @@ import java.awt.event.ItemListener;
 public class MyFirstGui extends JFrame{
 	
 	JButton button1 = new JButton("Add");
-	public JLabel topLabel;
-	public JPanel textPanel;
-	public JTextField input1 = new JTextField("");
-	public JTextField input2 = new JTextField("");
+	private JLabel leftLabel;
+	private JPanel mainPanel, topPanel, bottomRightPanel, bottomLeftPanel, topLeftPanel, topRightPanel;
+	private JTextField input1 = new JTextField("");
+	private JTextField input2 = new JTextField("");
 	private String display = "Your result will appear here";
 	private JTextField displayField = new JTextField(display);
 	
-	double input1value;
-	double input2value;
+	private double input1value;
+	private double input2value;
 	
 	private Listener listen = new Listener();
 	
-	public String text1 = input1.getText();
-	public String text2 = input2.getText();
 	
 	public MyFirstGui(String title){
 		super(title);
-		setSize(400,400);
+		setSize(500,150);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		topLabel = new JLabel("Input two numbers and press the button to display their sum.");
-		textPanel = new JPanel();
-		textPanel.add(topLabel);
-		this.add(textPanel);
 		
 		
-		textPanel.setLayout(new GridLayout(5,1));
-		textPanel.setSize(30, 100);
+		leftLabel = new JLabel("Input two numbers.");
+		mainPanel = new JPanel();
+		topPanel = new JPanel();
+		bottomLeftPanel = new JPanel();
+		bottomRightPanel = new JPanel();
+		topLeftPanel = new JPanel();
+		topRightPanel = new JPanel();
 		
-		textPanel.add(input1);
-		textPanel.add(input2);
-		textPanel.add(button1);
-		textPanel.add(displayField);
+		topLeftPanel.add(leftLabel);
+		
+		topRightPanel.setLayout(new GridLayout(2,1));
+		topRightPanel.add(input1);
+		topRightPanel.add(input2);
+		
+		bottomLeftPanel.add(displayField);
+		bottomRightPanel.add(button1);
+		
+		mainPanel.setLayout(new GridLayout(2,2));
+		
+		mainPanel.add(topLeftPanel);
+		mainPanel.add(topRightPanel);
+		mainPanel.add(bottomLeftPanel);
+		mainPanel.add(bottomRightPanel);
+		
+		
+		
+		this.add(mainPanel);
+		
+		mainPanel.setSize(30, 100);
+		
+		
 		
 		button1.addActionListener(listen);
 	}
@@ -68,8 +86,8 @@ public class MyFirstGui extends JFrame{
 					System.out.println("Invalid input. Please provide numbers as inputs.");
 				}
 				displayField.setText(display);
-				textPanel.revalidate();
-				textPanel.repaint();
+				mainPanel.revalidate();
+				mainPanel.repaint();
 			}
 		}
 		

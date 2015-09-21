@@ -12,12 +12,12 @@ import java.awt.event.ItemListener;
 
 public class MyFirstGui extends JFrame{
 	
-	JButton button1 = new JButton("Addition");
+	JButton button1 = new JButton("Add");
 	public JLabel topLabel;
 	public JPanel textPanel;
 	public JTextField input1 = new JTextField("");
 	public JTextField input2 = new JTextField("");
-	private String display = "Display Start Text";
+	private String display = "Your result will appear here";
 	private JTextField displayField = new JTextField(display);
 	
 	double input1value;
@@ -61,13 +61,15 @@ public class MyFirstGui extends JFrame{
 					input2value = Double.parseDouble(input2.getText());
 					display = Double.toString(input1value + input2value);
 					System.out.println(display);
-					displayField.setText(display);
-					textPanel.revalidate();
-					textPanel.repaint();
+					
 				}
 				catch(Exception exception){
+					display = "Invalid input. Please provide numbers as inputs.";
 					System.out.println("Invalid input. Please provide numbers as inputs.");
 				}
+				displayField.setText(display);
+				textPanel.revalidate();
+				textPanel.repaint();
 			}
 		}
 		

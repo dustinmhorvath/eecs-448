@@ -13,16 +13,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		MyFirstGui frame = new MyFirstGui("TestFrame");
-
-		
-		JLabel label = new JLabel("Label Text");
-		JPanel panel = new JPanel();
-		JTextField text = new JTextField("Some test text");
-		
-		panel.add(label);
-		//panel.add(text);
-		panel.add(frame.button1);
+		MyFirstGui frame = new MyFirstGui("Addition Machine");
+		frame.setVisible(true);
 		
 		
 

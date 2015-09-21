@@ -9,7 +9,6 @@
 
 package eecs448assignment2;
 
-//import javafx.scene.layout.Pane;
 import java.lang.Exception;
 import javax.swing.*;
 
@@ -93,7 +92,6 @@ public class MyFirstGui extends JFrame{
 					input2value = Double.parseDouble(input2.getText());
 					display = Double.toString(input1value + input2value);
 					System.out.println(display);
-					
 				}
 				// CATCH EXCEPTIONS HERE WHEN THE USER TAKES A POOP IN YOUR INPUT FIELD
 				catch(Exception exception){
@@ -105,6 +103,7 @@ public class MyFirstGui extends JFrame{
 				displayField.setText(display);
 				mainPanel.revalidate();
 				mainPanel.repaint();
+				
 			}
 		}
 		

@@ -5,7 +5,9 @@ import android.widget.Toast;
 
 /**
  * Created by dhorvath on 10/31/2015.
- *
+ * Contains utilities for other classes to use in a static context.
+ * Currently provides functionality for:
+ *      Toast messages (long and short)
  */
 public class Tools {
     protected static void toastShort(String text, Context context){

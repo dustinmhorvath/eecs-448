@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     Button blue;
     Button green;
     Button purple;
+    Button shortToast;
+    Button longToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         blue = (Button) findViewById(R.id.blue_button);
         green = (Button) findViewById(R.id.green_button);
         purple = (Button) findViewById(R.id.purple_button);
+        shortToast = (Button) findViewById(R.id.shortToast);
+        longToast = (Button) findViewById(R.id.longToast);
+
         red.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,22 +41,34 @@ public class MainActivity extends AppCompatActivity {
         blue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                findViewById(R.id.main_layout).setBackgroundColor(0xFFFF0000);
+                findViewById(R.id.main_layout).setBackgroundColor(0xFF0000FF);
                 findViewById(R.id.main_layout).invalidate();
             }
         });
         green.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                findViewById(R.id.main_layout).setBackgroundColor(0xFFFF0000);
+                findViewById(R.id.main_layout).setBackgroundColor(0xFF008000);
                 findViewById(R.id.main_layout).invalidate();
             }
         });
         purple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                findViewById(R.id.main_layout).setBackgroundColor(0xFFFF0000);
+                findViewById(R.id.main_layout).setBackgroundColor(0xFF800080);
                 findViewById(R.id.main_layout).invalidate();
+            }
+        });
+        shortToast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Tools.toastShort("This is a quick toast message.", getApplicationContext());
+            }
+        });
+        longToast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Tools.toastLong("This is a longer toast message.", getApplicationContext());
             }
         });
     }
